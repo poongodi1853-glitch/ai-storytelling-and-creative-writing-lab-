@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Storytelling and Creative Writing Lab</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f2eaff, #e6f4ff);
+      color: #24213b;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 35px 18px 20px;
+    }
+    header h1 { color: #6041b5; margin-bottom: 10px; }
+    header p { color: #5d5a70; line-height: 1.6; }
+    main {
+      max-width: 760px;
+      margin: 15px auto 45px;
+      padding: 25px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px #34205c18;
+    }
+    label { display: block; font-weight: bold; margin: 17px 0 8px; }
+    textarea, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d6cfe8;
+      border-radius: 9px;
+      font: inherit;
+      background: white;
+    }
+    textarea { min-height: 115px; resize: vertical; }
+    button {
+      margin-top: 18px;
+      padding: 13px 20px;
+      background: #6846c5;
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #4d319c; }
+    #result {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8f5ff;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .note { color: #69647b; font-size: 13px; }
+    footer { text-align: center; padding: 20px; color: #625b76; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ AI Storytelling Lab</h1>
+    <p>Turn your imagination into a story.<br>
+      Explore ideas, create characters and start writing!</p>
+  </header>
+
+  <main>
+    <h2>Create Your Story</h2>
+    <p>Describe your idea and choose a genre to get started.</p>
+
+    <label for="idea">Your story idea</label>
+    <textarea id="idea"
+      placeholder="Example: A young girl discovers a magical library..."></textarea>
+
+    <label for="genre">Choose a genre</label>
+    <select id="genre">
+      <option>Fantasy</option>
+      <option>Adventure</option>
+      <option>Mystery</option>
+      <option>Science Fiction</option>
+      <option>Fairy Tale</option>
+    </select>
+
+    <button onclick="generateStory()">Generate Story</button>
+    <button onclick="copyStory()" style="margin-left:8px">
+      Copy Story
+    </button>
+
+    <section id="result" aria-live="polite">
+      Your story will appear here...
+    </section>
+    <p class="note">
+      Demo version: stories are generated from a simple template,
+      not from a live AI model.
+    </p>
+  </main>
+
+  <footer>AI Storytelling and Creative Writing Lab · 2026</footer>
+
+  <script>
+    function generateStory() {
+      const idea = document.getElementById("idea").value.trim();
+      const genre = document.getElementById("genre").value;
+      const result = document.getElementById("result");
+
+      if (!idea) {
+        result.textContent = "Please enter a story idea first.";
+        return;
+      }
+
+      const openings = {
+        "Fantasy": "In a world filled with magic",
+        "Adventure": "Beyond the edge of the known world",
+        "Mystery": "It began with a strange discovery",
+        "Science Fiction": "In a future unlike our own",
+        "Fairy Tale": "Once upon a time"
+      };
+
+      const story =
+        openings[genre] + ", a remarkable journey began.\n\n" +
+        "It all started with this idea: " + idea + ".\n\n" +
+        "At first, the path seemed uncertain. But curiosity " +
+        "was stronger than fear, and each new discovery " +
+        "revealed another piece of the puzzle. Along the way, " +
+        "unexpected challenges tested courage, imagination " +
+        "and the power of hope.\n\n" +
+        "At last, a surprising truth changed everything. " +
+        "The journey was not just about reaching a destination; " +
+        "it was about discovering what was possible all along.\n\n" +
+        "The End — or perhaps, a new beginning...";
+
+      result.textContent = story;
+    }
+
+    async function copyStory() {
+      const text = document.getElementById("result").textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("Story copied!");
+      } catch {
+        alert("Please select and copy the story manually.");
+      }
+    }
+  </script>
+</body>
+</html>
