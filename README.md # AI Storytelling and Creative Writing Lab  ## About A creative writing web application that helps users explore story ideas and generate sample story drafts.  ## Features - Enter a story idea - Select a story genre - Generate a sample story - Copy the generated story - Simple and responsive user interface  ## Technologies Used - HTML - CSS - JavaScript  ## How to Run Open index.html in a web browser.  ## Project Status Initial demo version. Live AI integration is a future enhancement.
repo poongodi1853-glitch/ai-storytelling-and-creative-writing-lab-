@@ -1,0 +1,24 @@
+
+# AI Storytelling and Creative Writing Lab
+
+## About
+A creative writing web application that helps users
+explore story ideas and generate sample story drafts.
+
+## Features
+- Enter a story idea
+- Select a story genre
+- Generate a sample story
+- Copy the generated story
+- Simple and responsive user interface
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## How to Run
+Open index.html in a web browser.
+
+## Project Status
+Initial demo version. Live AI integration is a future enhancement.
