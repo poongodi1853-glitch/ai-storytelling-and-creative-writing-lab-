@@ -1,5 +1,5 @@
 # AI Storytelling & Creative Writing Lab
-**Poongodi R - VAC Project **
+Poongodi R - VAC Project 
 
 A polished, responsive storytelling workspace built with Python (Flask), HTML, CSS, JavaScript, and Bootstrap.
 
